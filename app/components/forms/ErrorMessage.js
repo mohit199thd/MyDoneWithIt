@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet,Text } from 'react-native';
 
-function ErrorMessage({ error ,visible}) {
+function ErrorMessage({ error,visible }) {
+
+
+  if (!visible ||!error) return null;
   
-if (!visible||!error)  return null;
-
-
   return (
     <Text  style={styles.errro} >{error}</Text>
 

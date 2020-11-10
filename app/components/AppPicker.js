@@ -12,15 +12,14 @@ import {
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../config/colors";
 
-import { Colors } from "react-native/Libraries/NewAppScreen";
-import defaultStyles from "../config/styles";
-import PickerItem from "./PickerItem";
+ import PickerItem from "./PickerItem";
 //import {  } from "react-native-gesture-handler";
 //import { TouchableWithoutFeedback } from "react-native";
 function AppPicker({
   icon,
   items,
   onSelectItem,
+  PickerItemComponent = PickerItem,   
   selectedItem,
   placeHolder,
   ...otherProps
@@ -55,7 +54,8 @@ function AppPicker({
           data={items}
           keyExtractor={(item) => item.value.toString()}
           renderItem={({ item }) => (
-            <PickerItem
+            <PickerItemComponent
+              item={item }
               label={item.label}
               onPress={() => {
                 setModalVisible(false);
